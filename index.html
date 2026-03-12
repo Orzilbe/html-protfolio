@@ -23,6 +23,7 @@
             color: var(--text-main);
             margin: 0;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -33,63 +34,75 @@
 
         header {
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             margin: 0;
             color: #5d5d5d;
+            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-dim);
-            margin-top: 10px;
+            margin-top: 15px;
             letter-spacing: 0.5px;
+            font-weight: 400;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
         }
 
         .project-card {
             background-color: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f2f2f2;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
         }
 
-        .project-img {
+        /* מחליפי תמונה עם אמוג'י */
+        .project-img-placeholder {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #f9f9f9;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 1px solid #f2f2f2;
         }
 
         .project-content {
-            padding: 25px;
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .tag {
             display: inline-block;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* צבעי תגיות פסטל */
@@ -98,31 +111,34 @@
         .tag-green { background-color: var(--accent-green); color: #5f8d4e; }
 
         h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.3rem;
+            margin: 0 0 12px 0;
+            font-size: 1.5rem;
             color: #444;
+            font-weight: 700;
         }
 
         p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-dim);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 12px;
+            padding: 12px 24px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, opacity 0.2s;
             background-color: #f3f3f3;
             color: var(--button-text);
+            text-align: center;
         }
 
         .btn:hover {
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .btn-main {
@@ -132,15 +148,16 @@
 
         .nav-links {
             text-align: center;
-            margin-top: 80px;
-            padding-bottom: 40px;
+            margin-top: 100px;
+            padding-bottom: 60px;
         }
 
         .nav-links a {
             color: var(--text-dim);
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 0.9rem;
+            margin: 0 20px;
+            font-size: 1rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
@@ -154,38 +171,45 @@
 <div class="container">
     <header>
         <h1>Or Zilberberg</h1>
-        <p class="subtitle">Product & Implementation Manager | Digital Game Design M.A. Student</p>
+        <p class="subtitle">Product & Implementation Manager | Digital Game Design M.A. Student at Shenkar</p>
     </header>
 
     <div class="projects-grid">
         <div class="project-card">
-            <img src="./assets/images/henna-rsvp.png" alt="Henna RSVP System" class="project-img">
+            <div class="project-img-placeholder" style="background-color: var(--accent-pink);">
+                <span>🌸</span>
+            </div>
             <div class="project-content">
-                <span class="tag tag-pink">Web Development</span>
+                <div>
+                    <span class="tag tag-pink">Web Development</span>
+                    <span class="tag tag-green">Live Project</span>
+                </div>
                 <h3>Henna RSVP System</h3>
-                <p>A mobile-responsive RSVP platform designed for a traditional event, focusing on ease of use and clean data collection.</p>
-                <a href="https://orzilbe.github.io/henna-rsvp/" class="btn btn-main" target="_blank">View Live Site</a>
+                <p>A functional, mobile-first RSVP platform designed for tailored event management. Focuses on streamlined guest confirmation and clean data collection.</p>
+                <a href="https://orzilbe.github.io/henna-rsvp/" class="btn btn-main" target="_blank">View Live System</a>
             </div>
         </div>
 
         <div class="project-card">
-            <img src="./assets/images/sound-project.png" alt="Sound Design Project" class="project-img">
+            <div class="project-img-placeholder" style="background-color: var(--accent-green);">
+                <span>🎧</span>
+            </div>
             <div class="project-content">
                 <span class="tag tag-green">Creative Tech</span>
                 <h3>Sound Design Portfolio</h3>
-                <p>An experimental project at Shenkar exploring interactive audio and digital soundscapes.</p>
+                <p>An experimental creative project at Shenkar exploring interactive audio, digital soundscapes, and sound design principles.</p>
                 <a href="https://orzilbe.github.io/sound-course-project/" class="btn btn-main" target="_blank">Open Project</a>
             </div>
         </div>
 
         <div class="project-card">
-            <div class="project-img" style="display: flex; align-items: center; justify-content: center; background-color: var(--accent-pink);">
-                <span style="font-size: 3rem;">🎙️</span>
+            <div class="project-img-placeholder" style="background-color: var(--accent-pink);">
+                <span>🎙️</span>
             </div>
             <div class="project-content">
                 <span class="tag tag-blue">AI & Unity</span>
                 <h3>Unity Voice (Capstone)</h3>
-                <p>An AI-powered language platform recognized by Microsoft. <strong>Note:</strong> The system is currently offline, demo video link coming soon.</p>
+                <p>An AI-powered language platform recognized by Microsoft. <strong>Note:</strong> The system is currently offline; a demo video link will be available soon.</p>
                 <a href="#" class="btn">Demo Video (Soon)</a>
             </div>
         </div>
